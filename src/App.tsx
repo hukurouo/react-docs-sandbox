@@ -1,10 +1,29 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import WelcomeClass from './ClassComponent';
-import Hello from './FunctionComponent'
-import Clock from './Clock'
-import Counter from './Counter'
+import WelcomeClass from './Components/ClassComponent';
+import Hello from './Components/FunctionComponent'
+import Clock from './Components/Clock'
+import Counter from './Components/Counter'
+import LoginControl from './Components/LoginControl';
+import NameForm from './Components/NameForm'
+
+type SplitPanePropsType = {
+  left: JSX.Element
+  right : JSX.Element
+}
+function SplitPane(props: SplitPanePropsType) {
+  return (
+    <div className="SplitPane">
+      <div className="SplitPane-left">
+        {props.left}
+      </div>
+      <div className="SplitPane-right">
+        {props.right}
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
@@ -13,11 +32,20 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         React-Sandbox
       </header>
-      <Hello name="nish"/> - FunctionComponent
-      <WelcomeClass name="nish"/> - ClassComponent
-      <Clock />
-      <Counter increment={1}/>
-      <Counter increment={2}/>
+      <div className="App-body">
+        <SplitPane
+          left={<Hello name="spctr" />}
+          right={<WelcomeClass name="hukurouo" />} 
+        />
+        <Clock />
+        <Counter increment={1}/>
+        <Counter increment={2}/>
+        <LoginControl />
+        <NameForm />
+      </div>
+      <footer className="App-footer">
+        by hukurouo
+      </footer>
     </div>
   );
 }

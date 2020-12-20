@@ -20,9 +20,9 @@ class Counter extends React.Component<typeCounterProps, typeCounterState> {
   render() {
     return (
       <div>
-        <h2>It is {this.state.counter}.</h2>
+        <h2>Counter: It is {this.state.counter}.</h2>
         <button className="square_highlight" onClick={this.increment}>
-          inc {this.props.increment}
+          + {this.props.increment}
         </button>
       </div>
     );
