@@ -69,6 +69,6 @@ async function apitest(){
     if (res.body) {
       return res.body.message;
     } else {
-      throw new Error("Unsuccessful request");
+      return "error"
     }
 }
